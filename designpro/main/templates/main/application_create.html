@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Создание заявки{% endblock %}
+
+{% block content %}
+    <h1>Создание новой заявки</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="title">Название:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="description">Описание:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+
+        <label for="status">Статус:</label>
+        <select id="status" name="status">
+            <option value="новая">Новая</option>
+            <option value="в процессе">В процессе</option>
+            <option value="завершена">Завершена</option>
+        </select>
+
+        <button type="submit">Отправить заявку</button>
+    </form>
+{% endblock %}

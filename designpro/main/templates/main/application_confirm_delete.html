@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Подтверждение удаления{% endblock %}
+
+{% block content %}
+    <h1>Подтверждение удаления заявки</h1>
+    <p>Вы уверены, что хотите удалить заявку "{{ application.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+        <a href="{% url 'main:applications' %}">Отмена</a>
+    </form>
+{% endblock %}

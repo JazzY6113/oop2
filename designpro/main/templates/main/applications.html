@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Мои заявки{% endblock %}
+
+{% block content %}
+    <h1>Мои заявки</h1>
+    <div class="application-list">
+        {% for application in applications %}
+            <div class="application-item">
+                <h2>{{ application.title }}</h2>
+                <p>{{ application.description }}</p>
+                <p><strong>Статус:</strong> {{ application.status }}</p>
+            </div>
+        {% empty %}
+            <p>У вас нет заявок.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

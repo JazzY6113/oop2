@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Application, Category
+from .models import Application
 from django.core.validators import RegexValidator, EmailValidator
 
 class UserRegistrationForm(forms.ModelForm):
@@ -14,11 +14,11 @@ class UserRegistrationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['fio', 'username', 'email', 'password']
+        fields = ['fio', 'username', 'email', 'password', 'password_confirm', 'consent']
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
-        validator = RegexValidator(r'^[a-zA-Z-]+', "Логин должен содержать только латиницу и дефисы.")
+        validator = RegexValidator(r'^[a-zA-Z0-9-]+$', "Логин должен содержать только латиницу, цифры и дефисы.")
         validator(username)
 
         if User.objects.filter(username=username).exists():

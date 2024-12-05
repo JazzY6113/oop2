@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ca9998-544d-4953-a8b9-f53cbc787e6b" name="Changes" comment="form register" />
+    <list default="true" id="81ca9998-544d-4953-a8b9-f53cbc787e6b" name="Changes" comment="2.1 ready">
+      <change afterPath="$PROJECT_DIR$/designpro/main/my_captcha.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/designpro/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/designpro/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,12 +43,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "2.1"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;2.1&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -72,7 +81,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733386714411</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2.1 ready">
+      <option name="closed" value="true" />
+      <created>1733387063872</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733387063872</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,6 +106,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ex1" />
     <MESSAGE value="form register" />
-    <option name="LAST_COMMIT_MESSAGE" value="form register" />
+    <MESSAGE value="2.1 ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.1 ready" />
   </component>
 </project>

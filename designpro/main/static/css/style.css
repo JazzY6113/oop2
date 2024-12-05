@@ -59,7 +59,7 @@ form {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    width: 50vw;
+    width: 20vw;
 }
 
 form > label {
@@ -70,8 +70,6 @@ form > label {
 form > input,
 form > textarea,
 form > select {
-    padding: 10px;
-    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
@@ -88,7 +86,6 @@ form > button:hover {
     background: #4cae4c;
 }
 
-/* Стили для списка заявлений */
 .application-list {
     margin-top: 20px;
 }
@@ -99,4 +96,8 @@ form > button:hover {
     padding: 15px;
     margin-bottom: 10px;
     background: #f9f9f9;
+}
+
+div {
+    width: 80vw;
 }

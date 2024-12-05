@@ -13,6 +13,18 @@ def index(request):
         'in_progress_count': in_progress_count,
     })
 
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('main:index')
+        else:
+            return render(request, 'main/login.html', {'error': 'Неверные логин или пароль'})
+    return render(request, 'main/login.html')
+
 def register_view(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
@@ -26,22 +38,15 @@ def register_view(request):
         form = UserRegistrationForm()
     return render(request, 'main/register.html', {'form': form})
 
-def login_view(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('main:index')
-        else:
-            return render(request, 'main/login.html', {'error': 'Неверные логин или пароль'})
-    return render(request, 'main/login.html')
-
 @login_required
 def logout_view(request):
     logout(request)
     return redirect('main:index')
+
+@login_required
+def applications_view(request):
+    applications = Application.objects.filter(user=request.user).order_by('-created_at')
+    return render(request, 'main/applications.html', {'applications': applications})
 
 # @login_required
 # def application_create_view(request):
@@ -55,11 +60,6 @@ def logout_view(request):
 #     else:
 #         form = ApplicationForm()
 #     return render(request, 'main/application_create.html', {'form': form})
-
-@login_required
-def applications_view(request):
-    applications = Application.objects.filter(user=request.user).order_by('-created_at')
-    return render(request, 'main/applications.html', {'applications': applications})
 
 # def application_delete_view(request, id):
 #     application = get_object_or_404(Application, id=id)

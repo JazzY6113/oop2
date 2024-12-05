@@ -1,14 +1,36 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import Application, Category
+from django.core.validators import RegexValidator, EmailValidator
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     password_confirm = forms.CharField(widget=forms.PasswordInput)
+    consent = forms.BooleanField(required=True, label="Согласие на обработку персональных данных")
+    fio = forms.CharField(
+        label="ФИО",
+        validators=[RegexValidator(r'^[А-Яа-яЁё\s-]+$', "ФИО должно содержать только кириллические буквы, дефисы и пробелы.")]
+    )
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password']
+        fields = ['fio', 'username', 'email', 'password']
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        validator = RegexValidator(r'^[a-zA-Z-]+', "Логин должен содержать только латиницу и дефисы.")
+        validator(username)
+
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError("Этот логин уже занят.")
+        return username
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        EmailValidator()(email)
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("Этот email уже занят.")
+        return email
 
     def clean(self):
         cleaned_data = super().clean()

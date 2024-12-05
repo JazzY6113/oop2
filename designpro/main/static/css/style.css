@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: #fff;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav > ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+nav > ul > li > a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+nav > ul > li > a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 90vw;
+    height: 70vh;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+h1 {
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+    color: #fff;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 50vw;
+}
+
+form > label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form > input,
+form > textarea,
+form > select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form > button {
+    padding: 10px;
+    background: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+form > button:hover {
+    background: #4cae4c;
+}
+
+/* Стили для списка заявлений */
+.application-list {
+    margin-top: 20px;
+}
+
+.application-item {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+}

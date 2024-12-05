@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <h1>Добро пожаловать в Design.pro</h1>
+
+<!--    <h2>Последние завершенные заявки</h2>-->
+<!--    <ul>-->
+<!--        {% for application in completed_applications %}-->
+<!--            <li>-->
+<!--                <strong>{{ application.title }}</strong><br>-->
+<!--                Категория: {{ application.category }}<br>-->
+<!--                <img src="{{ application.image.url }}" alt="{{ application.title }}" width="200"><br>-->
+<!--                Время добавления: {{ application.created_at }}-->
+<!--            </li>-->
+<!--        {% empty %}-->
+<!--            <li>Нет завершенных заявок.</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+<!--    <h2>Количество заявок в работе: {{ in_progress_count }}</h2>-->
+{% endblock %}

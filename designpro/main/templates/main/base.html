@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Design.pro{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'main:index' %}">Главная</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'main:applications' %}">Личный кабинет</a></li>
+                    <li><a href="{% url 'main:logout' %}">Выход</a></li>
+                {% else %}
+                    <li><a href="{% url 'main:login' %}">Вход</a></li>
+                    <li><a href="{% url 'main:register' %}">Регистрация</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Design.pro. Все права защищены.</p>
+    </footer>
+</body>
+</html>

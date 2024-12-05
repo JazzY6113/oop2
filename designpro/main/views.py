@@ -101,3 +101,27 @@ def logout_view(request):
 def applications_view(request):
     applications = Application.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'main/applications.html', {'applications': applications})
+
+@login_required
+def application_create_view(request):
+    if request.method == 'POST':
+        form = ApplicationForm(request.POST, request.FILES)
+        if form.is_valid():
+            application = form.save(commit=False)
+            application.user = request.user  # Устанавливаем текущего пользователя
+            application.save()
+            return redirect('main:applications')  # Перенаправление на страницу с заявками
+    else:
+        form = ApplicationForm()
+
+    return render(request, 'main/applications_create.html', {'form': form})
+
+@login_required
+def application_delete_view(request, id):
+    application = get_object_or_404(Application, id=id,
+                                    user=request.user)  # Получаем заявку, принадлежащую текущему пользователю
+    if request.method == 'POST':
+        application.delete()
+        return redirect('main:applications')  # Перенаправление на страницу с заявками
+
+    return render(request, 'main/applications_confirm_delete.html', {'application': application})

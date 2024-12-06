@@ -81,7 +81,7 @@
         <div>
             <img src="data:image/png;base64,{{ captcha_image }}" alt="Капча">
         </div>
-
+        <button type="button" onclick="location.reload();">Обновить капчу</button>
         <button type="submit">Зарегистрироваться</button>
     </form>
     <p>Уже есть аккаунт? <a href="{% url 'main:login' %}">Войти</a></p>

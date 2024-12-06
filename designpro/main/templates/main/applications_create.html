@@ -19,7 +19,7 @@
 
         <div>
             {{ form.title.label }}<br>
-            {{ form.title }}
+            {{ form.title }}  <!-- Поле title -->
             {% if form.title.errors %}
                 <ul class="errorlist">
                     {% for error in form.title.errors %}
@@ -31,7 +31,7 @@
 
         <div>
             {{ form.description.label }}<br>
-            {{ form.description }}
+            {{ form.description }}  <!-- Поле description -->
             {% if form.description.errors %}
                 <ul class="errorlist">
                     {% for error in form.description.errors %}
@@ -42,11 +42,11 @@
         </div>
 
         <div>
-            {{ form.category.label }}<br>
-            {{ form.category }}
-            {% if form.category.errors %}
+            <label for="id_categories">Выберите категории:</label><br>
+            {{ form.categories }}  <!-- Поле categories -->
+            {% if form.categories.errors %}
                 <ul class="errorlist">
-                    {% for error in form.category.errors %}
+                    {% for error in form.categories.errors %}
                         <li>{{ error }}</li>
                     {% endfor %}
                 </ul>
@@ -55,7 +55,7 @@
 
         <div>
             {{ form.image.label }}<br>
-            {{ form.image }}
+            {{ form.image }}  <!-- Поле image -->
             {% if form.image.errors %}
                 <ul class="errorlist">
                     {% for error in form.image.errors %}

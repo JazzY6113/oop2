@@ -110,6 +110,7 @@ def application_create_view(request):
             application = form.save(commit=False)
             application.user = request.user  # Устанавливаем текущего пользователя
             application.save()
+            form.save_m2m()  # Сохраняем связь ManyToMany
             return redirect('main:applications')  # Перенаправление на страницу с заявками
     else:
         form = ApplicationForm()

@@ -7,7 +7,7 @@
     <a href="{% url 'main:application_create' %}">Создать новую заявку</a>
     <div class="application-list">
         {% for application in applications %}
-            <div class="application-item">
+            <div class="application-item"> <!-- Класс для рамки -->
                 <h2>{{ application.title }}</h2>
                 <p>{{ application.description }}</p>
                 <p><strong>Статус:</strong> {{ application.status }}</p>

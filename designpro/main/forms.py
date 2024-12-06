@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Application
+from .models import Application, Category
 from django.core.validators import RegexValidator, EmailValidator
+from django.core.exceptions import ValidationError
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
@@ -42,4 +43,16 @@ class UserRegistrationForm(forms.ModelForm):
 class ApplicationForm(forms.ModelForm):
     class Meta:
         model = Application
-        fields = ['title', 'description', 'category', 'image']
+        fields = ['title', 'description', 'categories', 'image']  # Измените 'category' на 'categories'
+
+    categories = forms.ModelMultipleChoiceField(
+        queryset=Category.objects.all(),
+        widget=forms.CheckboxSelectMultiple,  # Используйте чекбоксы для выбора нескольких категорий
+        required=False
+    )
+
+    def clean_categories(self):
+        categories = self.cleaned_data.get('categories')
+        if categories and len(categories) > 3:
+            raise ValidationError('Вы можете выбрать не более 3-х категорий.')
+        return categories

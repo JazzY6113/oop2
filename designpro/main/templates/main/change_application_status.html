@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Смена статуса заявки{% endblock %}
+
+{% block content %}
+    <h1>Смена статуса заявки "{{ application.title }}"</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="status">Выберите новый статус:</label>
+        <select name="status" required>
+            <option value="in_progress">Принято в работу</option>
+            <option value="completed">Выполнено</option>
+        </select>
+
+        <div>
+            <label for="comment">Комментарий:</label>
+            <input type="text" name="comment" required>
+        </div>
+
+        <div>
+            <label for="image">Изображение дизайна (обязательно для статуса "Выполнено"):</label>
+            <input type="file" name="image" accept="image/*" required>
+        </div>
+
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{% url 'main:applications' %}">Назад</a>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+{% endblock %}

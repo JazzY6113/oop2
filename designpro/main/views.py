@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, ApplicationForm
-from .models import Application
+from .models import Application, Category
 from .my_captcha import CustomCaptcha
+from django.contrib.auth.decorators import user_passes_test
 
 def captcha_view(request):
     captcha = CustomCaptcha()
@@ -25,9 +26,8 @@ def captcha_view(request):
     return render(request, 'captcha_template.html', {'captcha_image': image})
 
 def index(request):
-    completed_applications = Application.objects.filter(status='completed').order_by('-created_at')[:5]
+    completed_applications = Application.objects.filter(status='completed')
     in_progress_count = Application.objects.filter(status='in_progress').count()
-
     return render(request, 'main/index.html', {
         'completed_applications': completed_applications,
         'in_progress_count': in_progress_count,
@@ -99,8 +99,16 @@ def logout_view(request):
 
 @login_required
 def applications_view(request):
-    applications = Application.objects.filter(user=request.user).order_by('-created_at')
-    return render(request, 'main/applications.html', {'applications': applications})
+    if request.user.is_superuser:
+        applications = Application.objects.all().order_by('-created_at')
+    else:
+        applications = Application.objects.filter(user=request.user).order_by('-created_at')
+
+    status_filter = request.GET.get('status')
+    if status_filter:
+        applications = applications.filter(status=status_filter)
+
+    return render(request, 'main/applications.html', {'applications': applications, 'status_filter': status_filter})
 
 @login_required
 def application_create_view(request):
@@ -111,7 +119,7 @@ def application_create_view(request):
             application.user = request.user  # Устанавливаем текущего пользователя
             application.save()
             form.save_m2m()  # Сохраняем связь ManyToMany
-            return redirect('main:applications')  # Перенаправление на страницу с заявками
+            return redirect('main:applications')
     else:
         form = ApplicationForm()
 
@@ -119,10 +127,73 @@ def application_create_view(request):
 
 @login_required
 def application_delete_view(request, id):
-    application = get_object_or_404(Application, id=id,
-                                    user=request.user)  # Получаем заявку, принадлежащую текущему пользователю
+    application = get_object_or_404(Application, id=id, user=request.user)
+
+    if application.status in ['in_progress', 'completed']:
+        return render(request, 'main/applications_confirm_delete.html', {
+            'application': application,
+            'error': 'Нельзя удалить заявку с таким статусом.'
+        })
+
     if request.method == 'POST':
         application.delete()
-        return redirect('main:applications')  # Перенаправление на страницу с заявками
+        return redirect('main:applications')
 
     return render(request, 'main/applications_confirm_delete.html', {'application': application})
+
+def is_admin(user):
+    return user.is_superuser
+
+@login_required
+def change_application_status(request, id):
+    application = get_object_or_404(Application, id=id)
+
+    if request.method == 'POST':
+        if application.status == 'new':
+            new_status = request.POST.get('status')
+            comment = request.POST.get('comment')
+
+            if not comment:
+                return render(request, 'main/change_application_status.html', {
+                    'application': application,
+                    'error': 'Необходимо указать комментарий.'
+                })
+
+            application.comment = comment  # Сохраняем комментарий
+            if new_status == 'in_progress':
+                application.status = new_status
+            elif new_status == 'completed':
+                # Проверка на наличие изображения
+                if 'image' not in request.FILES or not request.FILES['image']:
+                    return render(request, 'main/change_application_status.html', {
+                        'application': application,
+                        'error': 'Необходимо прикрепить изображение дизайна.'
+                    })
+                application.image = request.FILES['image']  # Сохраняем загруженное изображение
+                application.status = new_status
+
+            application.save()
+            return redirect('main:applications')
+
+    return render(request, 'main/change_application_status.html', {'application': application})
+
+@login_required
+@user_passes_test(is_admin)
+def manage_categories(request):
+    categories = Category.objects.all()
+
+    if request.method == 'POST':
+        # Обработка добавления категории
+        if 'add_category' in request.POST:
+            new_category_name = request.POST.get('new_category')
+            if new_category_name:
+                Category.objects.create(name=new_category_name)
+
+        # Обработка удаления категории
+        elif 'delete_category' in request.POST:
+            category_id = request.POST.get('category_id')
+            Category.objects.filter(id=category_id).delete()
+
+        return redirect('main:manage_categories')
+
+    return render(request, 'main/manage_categories.html', {'categories': categories})

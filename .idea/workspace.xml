@@ -4,19 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ca9998-544d-4953-a8b9-f53cbc787e6b" name="Changes" comment="captcha update">
+    <list default="true" id="81ca9998-544d-4953-a8b9-f53cbc787e6b" name="Changes" comment="доп. задание 2.2 update">
+      <change afterPath="$PROJECT_DIR$/designpro/main/templates/main/change_application_status.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designpro/main/templates/main/manage_categories.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designpro/media/applications/188a964b3242fdfb59bee107f59fa027_N1wWXcG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designpro/media/applications/188a964b3242fdfb59bee107f59fa027_NXdklJj.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designpro/media/applications/188a964b3242fdfb59bee107f59fa027_eaRswOE.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designpro/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/designpro/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/designpro/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designpro/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designpro/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designpro/main/my_captcha.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/my_captcha.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/applications.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/applications.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/applications_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/applications_create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designpro/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/media/1.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/media/camden-atlantic-apartments-plantation-fl-pool-at-dusk-view.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/media/images (1).jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/media/images (2).jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/media/images.jfif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/designpro/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="2.1" />
+        <entry key="$PROJECT_DIR$" value="2.2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,7 +61,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "2.2",
+    "git-widget-placeholder": "2.3",
     "last_opened_file_path": "C:/Users/Exz00/PycharmProjects/locallibrary"
   }
 }]]></component>
@@ -119,7 +129,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733426693113</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="доп. задание 2.2">
+      <option name="closed" value="true" />
+      <created>1733477850611</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733477850611</updated>
+    </task>
+    <task id="LOCAL-00008" summary="доп. задание 2.2 update">
+      <option name="closed" value="true" />
+      <created>1733478359625</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733478359625</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,6 +166,8 @@
     <MESSAGE value="captcha in russian" />
     <MESSAGE value="2.2" />
     <MESSAGE value="captcha update" />
-    <option name="LAST_COMMIT_MESSAGE" value="captcha update" />
+    <MESSAGE value="доп. задание 2.2" />
+    <MESSAGE value="доп. задание 2.2 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="доп. задание 2.2 update" />
   </component>
 </project>

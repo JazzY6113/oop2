@@ -4,7 +4,6 @@ import string
 import io
 import base64
 
-
 class CustomCaptcha:
     def generate(self):
         # Генерация случайного текста капчи из кириллических символов

@@ -3,12 +3,10 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 def validate_image(image):
-    # Ограничение по размеру (2 Мб)
-    max_size = 2 * 1024 * 1024  # 2 MB
+    max_size = 2 * 1024 * 1024
     if image.size > max_size:
         raise ValidationError("Размер изображения не должен превышать 2 Мб.")
 
-    # Ограничение по типу файла
     valid_extensions = ['jpg', 'jpeg', 'png', 'bmp']
     ext = image.name.split('.')[-1].lower()
     if ext not in valid_extensions:
@@ -35,6 +33,7 @@ class Application(models.Model):
     image = models.ImageField(upload_to='applications/', validators=[validate_image], blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='new')
     created_at = models.DateTimeField(auto_now_add=True)
+    comment = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.title

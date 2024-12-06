@@ -10,6 +10,12 @@
             <div class="application-item"> <!-- Класс для рамки -->
                 <h2>{{ application.title }}</h2>
                 <p>{{ application.description }}</p>
+                <!-- Измените отображение категорий на множественные -->
+                <p><strong>Категории:</strong>
+                {% for category in application.categories.all %}
+                    {{ category.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+                </p>
                 <p><strong>Статус:</strong> {{ application.status }}</p>
 
                 <div class="application-image">

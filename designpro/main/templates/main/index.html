@@ -10,7 +10,12 @@
         {% for application in completed_applications %}
             <li>
                 <strong>{{ application.title }}</strong><br>
-                Категория: {{ application.category }}<br>
+                <!-- Измените отображение категорий на множественные -->
+                Категории:
+                {% for category in application.categories.all %}
+                    {{ category.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+                <br>
                 <img src="{{ application.image.url }}" alt="{{ application.title }}" width="500"><br>
                 Время добавления: {{ application.created_at }}
             </li>

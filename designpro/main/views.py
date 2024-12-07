@@ -149,31 +149,37 @@ def change_application_status(request, id):
     application = get_object_or_404(Application, id=id)
 
     if request.method == 'POST':
-        if application.status == 'new':
-            new_status = request.POST.get('status')
-            comment = request.POST.get('comment')
+        new_status = request.POST.get('status')
+        comment = request.POST.get('comment')
+        image = request.FILES.get('image')
 
+        if new_status == 'in_progress':
+            # Проверка на наличие комментария только для статуса "Принято в работу"
             if not comment:
                 return render(request, 'main/change_application_status.html', {
                     'application': application,
-                    'error': 'Необходимо указать комментарий.'
+                    'error': 'Необходимо указать комментарий для статуса "Принято в работу".'
                 })
+            application.status = new_status
+            application.comment = comment
+            # Сохраняем текущее изображение, если новое не загружено
+            if not image:
+                image = application.image  # Оставляем текущее изображение
+            application.image = image
 
-            application.comment = comment  # Сохраняем комментарий
-            if new_status == 'in_progress':
-                application.status = new_status
-            elif new_status == 'completed':
-                # Проверка на наличие изображения
-                if 'image' not in request.FILES or not request.FILES['image']:
-                    return render(request, 'main/change_application_status.html', {
-                        'application': application,
-                        'error': 'Необходимо прикрепить изображение дизайна.'
-                    })
-                application.image = request.FILES['image']  # Сохраняем загруженное изображение
-                application.status = new_status
+        elif new_status == 'completed':
+            # Проверка на наличие изображения только для статуса "Выполнено"
+            if not image:
+                return render(request, 'main/change_application_status.html', {
+                    'application': application,
+                    'error': 'Необходимо прикрепить изображение дизайна для статуса "Выполнено".'
+                })
+            application.image = image
+            application.status = new_status
+            application.comment = comment  # Сохраняем комментарий, если нужно
 
-            application.save()
-            return redirect('main:applications')
+        application.save()
+        return redirect('main:applications')
 
     return render(request, 'main/change_application_status.html', {'application': application})
 

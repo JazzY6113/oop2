@@ -8,18 +8,22 @@
         {% csrf_token %}
         <label for="status">Выберите новый статус:</label>
         <select name="status" required>
-            <option value="in_progress">Принято в работу</option>
-            <option value="completed">Выполнено</option>
+            <option value="in_progress" {% if application.status == 'in_progress' %}selected{% endif %}>Принято в работу</option>
+            <option value="completed" {% if application.status == 'completed' %}selected{% endif %}>Выполнено</option>
         </select>
 
         <div>
             <label for="comment">Комментарий:</label>
-            <input type="text" name="comment" required>
+            <input type="text" name="comment" value="{{ application.comment }}" required>
         </div>
 
         <div>
             <label for="image">Изображение дизайна (обязательно для статуса "Выполнено"):</label>
-            <input type="file" name="image" accept="image/*" required>
+            <input type="file" name="image" accept="image/*">
+            {% if application.image %}
+                <p>Текущее изображение:</p>
+                <img src="{{ application.image.url }}" alt="Изображение заявки" style="max-width: 300px;">
+            {% endif %}
         </div>
 
         <button type="submit">Сохранить</button>

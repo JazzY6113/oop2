@@ -4,30 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ca9998-544d-4953-a8b9-f53cbc787e6b" name="Changes" comment="доп. задание 2.2 update">
-      <change afterPath="$PROJECT_DIR$/designpro/main/templates/main/change_application_status.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designpro/main/templates/main/manage_categories.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designpro/media/applications/188a964b3242fdfb59bee107f59fa027_N1wWXcG.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designpro/media/applications/188a964b3242fdfb59bee107f59fa027_NXdklJj.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designpro/media/applications/188a964b3242fdfb59bee107f59fa027_eaRswOE.png" afterDir="false" />
+    <list default="true" id="81ca9998-544d-4953-a8b9-f53cbc787e6b" name="Changes" comment="ready">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designpro/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/my_captcha.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/my_captcha.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/applications.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/applications.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/applications_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/applications_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/change_application_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/change_application_status.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designpro/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/media/1.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/media/camden-atlantic-apartments-plantation-fl-pool-at-dusk-view.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/media/images (1).jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/media/images (2).jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/media/images.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,13 +40,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "2.3",
-    "last_opened_file_path": "C:/Users/Exz00/PycharmProjects/locallibrary"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;2.3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Exz00/PycharmProjects/locallibrary&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -145,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733478359625</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ready">
+      <option name="closed" value="true" />
+      <created>1733511076144</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733511076144</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,6 +158,7 @@
     <MESSAGE value="captcha update" />
     <MESSAGE value="доп. задание 2.2" />
     <MESSAGE value="доп. задание 2.2 update" />
-    <option name="LAST_COMMIT_MESSAGE" value="доп. задание 2.2 update" />
+    <MESSAGE value="ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="ready" />
   </component>
 </project>

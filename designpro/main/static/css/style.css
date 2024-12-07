@@ -81,29 +81,28 @@ input[type="password"],
 input[type="email"],
 input[type="file"],
 textarea {
-    width: 50%; /* Занимает 100% ширины родительского элемента */
-    padding: 10px; /* Внутренние отступы */
-    margin-bottom: 15px; /* Отступ между полями */
-    border: 1px solid #ccc; /* Рамка */
-    border-radius: 4px; /* Закругление углов */
-    box-sizing: border-box; /* Учитывает отступы и границы в ширине */
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-/* Дополнительные стили для textarea, если нужно */
 textarea {
-    height: 40px; /* Установите желаемую высоту для текстового поля */
+    height: 40px;
 }
 
 .application-item {
-    border: 1px solid #ccc; /* Цвет и стиль рамки */
-    border-radius: 8px; /* Закругление углов */
-    padding: 15px; /* Внутренние отступы */
-    margin-bottom: 20px; /* Отступ между карточками */
-    background-color: #fff; /* Цвет фона */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для эффекта глубины */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .application-image img {
-    max-width: 500px; /* Ограничение ширины изображения */
-    height: auto; /* Автоматическая высота для сохранения пропорций */
+    max-width: 500px;
+    height: auto;
 }

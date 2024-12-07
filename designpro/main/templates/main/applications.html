@@ -40,6 +40,13 @@
                     {% endif %}
                 </div>
 
+                <!-- Добавление блока для отображения комментария -->
+                {% if application.comment %}
+                    <div class="application-comment">
+                        <strong>Комментарий:</strong> {{ application.comment }}
+                    </div>
+                {% endif %}
+
                 <div class="application-actions">
                     {% if user.is_superuser %}
                         <a class="status-button" href="{% url 'main:change_application_status' application.id %}">Изменить статус</a><br>

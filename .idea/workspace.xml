@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ca9998-544d-4953-a8b9-f53cbc787e6b" name="Changes" comment="ready">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/change_application_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/change_application_status.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designpro/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="81ca9998-544d-4953-a8b9-f53cbc787e6b" name="Changes" comment="2.3 update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733511076144</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="2.3 update">
+      <option name="closed" value="true" />
+      <created>1733554309714</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1733554309714</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,6 +161,7 @@
     <MESSAGE value="доп. задание 2.2" />
     <MESSAGE value="доп. задание 2.2 update" />
     <MESSAGE value="ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="ready" />
+    <MESSAGE value="2.3 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.3 update" />
   </component>
 </project>

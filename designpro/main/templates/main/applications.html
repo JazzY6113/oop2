@@ -41,7 +41,7 @@
                 </div>
 
                 <!-- Добавление блока для отображения комментария -->
-                {% if application.comment %}
+                {% if application.comment and application.status != 'completed' %}
                     <div class="application-comment">
                         <strong>Комментарий:</strong> {{ application.comment }}
                     </div>

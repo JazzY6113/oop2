@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ca9998-544d-4953-a8b9-f53cbc787e6b" name="Changes" comment="2.3 update" />
+    <list default="true" id="81ca9998-544d-4953-a8b9-f53cbc787e6b" name="Changes" comment="2.3 new update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/applications.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/applications.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/applications_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/applications_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/change_application_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/change_application_status.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/templates/main/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designpro/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designpro/main/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -137,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733554309714</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="2.3 new update">
+      <option name="closed" value="true" />
+      <created>1733554840661</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1733554840661</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,6 +179,7 @@
     <MESSAGE value="доп. задание 2.2 update" />
     <MESSAGE value="ready" />
     <MESSAGE value="2.3 update" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.3 update" />
+    <MESSAGE value="2.3 new update" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.3 new update" />
   </component>
 </project>

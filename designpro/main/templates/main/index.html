@@ -10,9 +10,8 @@
         {% for application in completed_applications %}
             <li>
                 <strong>{{ application.title }}</strong><br>
-                Категории:
-                {% for category in application.categories.all %}
-                    {{ category.name }}{% if not forloop.last %}, {% endif %}
+                {% for category in application.categories_with_status %}
+                    {{ category.name }} ({{ category.categorystatus.status }}){% if not forloop.last %}, {% endif %}
                 {% endfor %}
                 <br>
                 {% if application.image %}
@@ -21,7 +20,6 @@
                     <p>Изображение не загружено.</p>
                 {% endif %}
                 Время добавления: {{ application.created_at }}<br>
-                <strong>Комментарий:</strong> {{ application.comment|default:"Нет комментария" }}
             </li>
         {% empty %}
             <li>Нет завершенных заявок.</li>

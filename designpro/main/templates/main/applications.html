@@ -30,7 +30,11 @@
                     {{ category.name }}{% if not forloop.last %}, {% endif %}
                 {% endfor %}
                 </p>
-                <p><strong>Статус:</strong> {{ application.get_status_display }}</p>
+                <p><strong>Статусы:</strong>
+                {% for category_status in application.categorystatus_set.all %}
+                    {{ category_status.category.name }}: {{ category_status.get_status_display }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+                </p>
 
                 <div class="application-image">
                     {% if application.image %}
@@ -40,8 +44,7 @@
                     {% endif %}
                 </div>
 
-                <!-- Добавление блока для отображения комментария -->
-                {% if application.comment and application.status != 'completed' %}
+                {% if application.comment %}
                     <div class="application-comment">
                         <strong>Комментарий:</strong> {{ application.comment }}
                     </div>
@@ -52,7 +55,7 @@
                         <a class="status-button" href="{% url 'main:change_application_status' application.id %}">Изменить статус</a><br>
                         <a class="delete-button" href="{% url 'main:application_delete' application.id %}">Удалить заявку</a>
                     {% else %}
-                        {% if application.status == 'new' %}
+                        {% if application.can_delete %}
                             <a class="delete-button" href="{% url 'main:application_delete' application.id %}">Удалить заявку</a>
                         {% endif %}
                     {% endif %}

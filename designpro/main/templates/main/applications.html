@@ -4,12 +4,29 @@
 
 {% block content %}
     <h1>Мои заявки</h1>
+    <a href="{% url 'main:application_create' %}">Создать новую заявку</a>
     <div class="application-list">
         {% for application in applications %}
-            <div class="application-item">
+            <div class="application-item"> <!-- Класс для рамки -->
                 <h2>{{ application.title }}</h2>
                 <p>{{ application.description }}</p>
+                <!-- Измените отображение категорий на множественные -->
+                <p><strong>Категории:</strong>
+                {% for category in application.categories.all %}
+                    {{ category.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+                </p>
                 <p><strong>Статус:</strong> {{ application.status }}</p>
+
+                <div class="application-image">
+                    {% if application.image %}
+                        <img src="{{ application.image.url }}" alt="{{ application.title }}">
+                    {% else %}
+                        <p>Изображение не загружено.</p>
+                    {% endif %}
+                </div>
+
+                <a class="delete-button" href="{% url 'main:application_delete' application.id %}">Удалить заявку</a>
             </div>
         {% empty %}
             <p>У вас нет заявок.</p>

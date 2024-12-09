@@ -1,103 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
 }
 
-header {
-    background: #333;
-    color: #fff;
+h1, h2, h3 {
+    color: #333;
 }
 
-nav {
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+}
+
+header .container {
+    width: 90vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav ul {
+    list-style: none;
     display: flex;
     justify-content: center;
 }
 
-nav > ul {
-    list-style: none;
-    display: flex;
-    gap: 10px;
+header nav ul li {
+    margin-left: 20px;
 }
 
-nav > ul > li > a {
+header nav a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
-    border: 1px solid white;
-    border-radius: 30px;
-    padding: 10px;
 }
 
-nav > ul > li > a:hover {
-    text-decoration: underline;
+header nav a:hover {
+    color: #e6e6e6;
 }
 
 main {
     width: 90vw;
-    height: 90vh;
+    max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
     background: #fff;
     border-radius: 8px;
-}
-
-h1 {
-    color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #333;
+    background-color: #333;
     color: #fff;
-    width: 100%;
+    text-align: center;
+    padding: 15px 0;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    width: 20vw;
+footer .container {
+    width: 90vw;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-form > label {
-    margin-bottom: 5px;
-    font-weight: bold;
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"],
+textarea {
+    width: 50%; /* Занимает 100% ширины родительского элемента */
+    padding: 10px; /* Внутренние отступы */
+    margin-bottom: 15px; /* Отступ между полями */
+    border: 1px solid #ccc; /* Рамка */
+    border-radius: 4px; /* Закругление углов */
+    box-sizing: border-box; /* Учитывает отступы и границы в ширине */
 }
 
-form > input,
-form > textarea,
-form > select {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-form > button {
-    padding: 10px;
-    background: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-}
-
-form > button:hover {
-    background: #4cae4c;
-}
-
-.application-list {
-    margin-top: 20px;
+/* Дополнительные стили для textarea, если нужно */
+textarea {
+    height: 40px; /* Установите желаемую высоту для текстового поля */
 }
 
 .application-item {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 15px;
-    margin-bottom: 10px;
-    background: #f9f9f9;
+    border: 1px solid #ccc; /* Цвет и стиль рамки */
+    border-radius: 8px; /* Закругление углов */
+    padding: 15px; /* Внутренние отступы */
+    margin-bottom: 20px; /* Отступ между карточками */
+    background-color: #fff; /* Цвет фона */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для эффекта глубины */
 }
 
-div {
-    width: 80vw;
+.application-image img {
+    max-width: 500px; /* Ограничение ширины изображения */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
 }

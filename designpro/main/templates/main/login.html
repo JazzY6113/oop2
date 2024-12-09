@@ -9,10 +9,14 @@
     {% endif %}
     <form method="post">
         {% csrf_token %}
-        <label for="username">Логин:</label>
-        <input type="text" name="username" required><br>
-        <label for="password">Пароль:</label>
-        <input type="password" name="password" required><br>
+        <div>
+            <label for="username">Логин:</label>
+            <input type="text" name="username" required>
+        </div>
+        <div>
+            <label for="password">Пароль:</label>
+            <input type="password" name="password" required>
+        </div>
         <button type="submit">Войти</button>
     </form>
     <p>Нет аккаунта? <a href="{% url 'main:register' %}">Зарегистрироваться</a></p>

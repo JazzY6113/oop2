@@ -1,0 +1,69 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Создание заявки{% endblock %}
+
+{% block content %}
+    <h1>Создание новой заявки</h1>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <div>
+            {{ form.title.label }}<br>
+            {{ form.title }}  <!-- Поле title -->
+            {% if form.title.errors %}
+                <ul class="errorlist">
+                    {% for error in form.title.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <div>
+            {{ form.description.label }}<br>
+            {{ form.description }}  <!-- Поле description -->
+            {% if form.description.errors %}
+                <ul class="errorlist">
+                    {% for error in form.description.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="id_categories">Выберите категории:</label><br>
+            {{ form.categories }}  <!-- Поле categories -->
+            {% if form.categories.errors %}
+                <ul class="errorlist">
+                    {% for error in form.categories.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <div>
+            {{ form.image.label }}<br>
+            {{ form.image }}  <!-- Поле image -->
+            {% if form.image.errors %}
+                <ul class="errorlist">
+                    {% for error in form.image.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div><br>
+        <button type="submit">Создать заявку</button>
+    </form>
+{% endblock %}

@@ -3,30 +3,58 @@
 {% block title %}Мои заявки{% endblock %}
 
 {% block content %}
-    <h1>Мои заявки</h1>
+    <h1>Заявки</h1>
     <a href="{% url 'main:application_create' %}">Создать новую заявку</a>
+
+    {% if user.is_superuser %}
+        <a href="{% url 'main:manage_categories' %}">Управление категориями</a>
+    {% endif %}
+
+    <form method="get" style="margin-bottom: 20px;">
+        <label for="status">Фильтр по статусу:</label>
+        <select name="status" onchange="this.form.submit()">
+            <option value="">Все</option>
+            <option value="new" {% if status_filter == 'new' %}selected{% endif %}>Новая</option>
+            <option value="in_progress" {% if status_filter == 'in_progress' %}selected{% endif %}>Принято в работу</option>
+            <option value="completed" {% if status_filter == 'completed' %}selected{% endif %}>Выполнено</option>
+        </select>
+    </form>
+
     <div class="application-list">
         {% for application in applications %}
-            <div class="application-item"> <!-- Класс для рамки -->
+            <div class="application-item">
                 <h2>{{ application.title }}</h2>
                 <p>{{ application.description }}</p>
-                <!-- Измените отображение категорий на множественные -->
-                <p><strong>Категории:</strong>
-                {% for category in application.categories.all %}
-                    {{ category.name }}{% if not forloop.last %}, {% endif %}
+                <p><strong>Категории и Статусы:</strong>
+                {% for category_status in application.categorystatus_set.all %}
+                    {{ category_status.category.name }}: {{ category_status.get_status_display }}{% if not forloop.last %}, {% endif %}
                 {% endfor %}
                 </p>
-                <p><strong>Статус:</strong> {{ application.status }}</p>
 
                 <div class="application-image">
                     {% if application.image %}
-                        <img src="{{ application.image.url }}" alt="{{ application.title }}">
+                        <img src="{{ application.image.url }}" alt="{{ application.title }}" width="500">
                     {% else %}
                         <p>Изображение не загружено.</p>
                     {% endif %}
                 </div>
 
-                <a class="delete-button" href="{% url 'main:application_delete' application.id %}">Удалить заявку</a>
+                {% if application.comment %}
+                    <div class="application-comment">
+                        <strong>Комментарий:</strong> {{ application.comment }}
+                    </div>
+                {% endif %}
+
+                <div class="application-actions">
+                    {% if user.is_superuser %}
+                        <a class="status-button" href="{% url 'main:change_application_status' application.id %}">Изменить статус</a><br>
+                        <a class="delete-button" href="{% url 'main:application_delete' application.id %}">Удалить заявку</a>
+                    {% else %}
+                        {% if application.can_delete %}
+                            <a class="delete-button" href="{% url 'main:application_delete' application.id %}">Удалить заявку</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
             </div>
         {% empty %}
             <p>У вас нет заявок.</p>

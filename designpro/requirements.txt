@@ -1,4 +1,3 @@
 django
 django-bootstrap4
 pillow
-django-simple-captcha

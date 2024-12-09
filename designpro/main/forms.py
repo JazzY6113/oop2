@@ -43,11 +43,11 @@ class UserRegistrationForm(forms.ModelForm):
 class ApplicationForm(forms.ModelForm):
     class Meta:
         model = Application
-        fields = ['title', 'description', 'categories', 'image']  # Измените 'category' на 'categories'
+        fields = ['title', 'description', 'categories', 'image']
 
     categories = forms.ModelMultipleChoiceField(
         queryset=Category.objects.all(),
-        widget=forms.CheckboxSelectMultiple,  # Используйте чекбоксы для выбора нескольких категорий
+        widget=forms.CheckboxSelectMultiple,
         required=False
     )
 

@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Смена статуса заявки{% endblock %}
+
+{% block content %}
+    <h1>Смена статуса заявки "{{ application.title }}"</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="category">Выберите категорию:</label>
+        <select name="category_id" required>
+            {% for category_status in category_statuses %}
+                <option value="{{ category_status.category.id }}">{{ category_status.category.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="status">Выберите новый статус:</label>
+        <select name="status" required>
+            <option value="in_progress">Принято в работу</option>
+            <option value="completed">Выполнено</option>
+        </select>
+
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{% url 'main:applications' %}">Назад</a>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+{% endblock %}

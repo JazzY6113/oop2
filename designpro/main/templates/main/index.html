@@ -10,14 +10,16 @@
         {% for application in completed_applications %}
             <li>
                 <strong>{{ application.title }}</strong><br>
-                <!-- Измените отображение категорий на множественные -->
-                Категории:
-                {% for category in application.categories.all %}
-                    {{ category.name }}{% if not forloop.last %}, {% endif %}
+                {% for category in application.categories_with_status %}
+                    {{ category.name }} ({{ category.categorystatus.status }}){% if not forloop.last %}, {% endif %}
                 {% endfor %}
                 <br>
-                <img src="{{ application.image.url }}" alt="{{ application.title }}" width="500"><br>
-                Время добавления: {{ application.created_at }}
+                {% if application.image %}
+                    <img src="{{ application.image.url }}" alt="{{ application.title }}" width="500"><br>
+                {% else %}
+                    <p>Изображение не загружено.</p>
+                {% endif %}
+                Время добавления: {{ application.created_at }}<br>
             </li>
         {% empty %}
             <li>Нет завершенных заявок.</li>

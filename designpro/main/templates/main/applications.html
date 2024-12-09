@@ -25,12 +25,7 @@
             <div class="application-item">
                 <h2>{{ application.title }}</h2>
                 <p>{{ application.description }}</p>
-                <p><strong>Категории:</strong>
-                {% for category in application.categories.all %}
-                    {{ category.name }}{% if not forloop.last %}, {% endif %}
-                {% endfor %}
-                </p>
-                <p><strong>Статусы:</strong>
+                <p><strong>Категории и Статусы:</strong>
                 {% for category_status in application.categorystatus_set.all %}
                     {{ category_status.category.name }}: {{ category_status.get_status_display }}{% if not forloop.last %}, {% endif %}
                 {% endfor %}
